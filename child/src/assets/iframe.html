@@ -1,0 +1,25 @@
+<html>
+<head></head>
+
+<body>
+  Child Iframe Storage
+
+  <script>
+    console.log("Init iframe receiver");
+    // addEventListener support for IE8
+    function bindEvent(element, eventName, eventHandler) {
+      if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false);
+      } else if (element.attachEvent) {
+        element.attachEvent('on' + eventName, eventHandler);
+      }
+    }
+
+    // Listen to messages from parent window
+    bindEvent(window, 'message', function (e) {
+      console.log("Received message", e);
+      localStorage.setItem('matricule', e.data);
+    });
+  </script>
+</body>
+</html>

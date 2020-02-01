@@ -1,0 +1,12 @@
+Parent
+<br>
+Matricule: {{matricule}}
+
+
+<br>
+<button (click)="addIframe()">Open Iframe</button>
+<br>
+<input type="text" [(ngModel)]="text" />
+<button (click)="sendToChild()">Send to child</button>
+
+<ng-template add-iframe></ng-template>
